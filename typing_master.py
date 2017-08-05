@@ -110,7 +110,8 @@ startingTime = time.time()
 takeInput()
 
 #calculate total time
-totalTime = time.time() - startingTime
+finalTime = time.time()
+totalTime = finalTime - startingTime
 analyse(totalTime)
 
 
