@@ -20,9 +20,9 @@ class color:
 
 
 def splashScreen():
-	#splash screen for three seconds
+	#splash screen for two seconds
 	print(color.HEADER + "Welcome to Typing Tutor 1.0 by Yash Bhutoria" + color.ENDC)
-	time.sleep(3)
+	time.sleep(2)
 	os.system("clear")	
 
 def displayContentOf(fileName):
@@ -47,6 +47,7 @@ def takeInput():
 
 #provide analysis to the user
 
+
 def analyse(totalTime):
 	
 	toType = open("testPara.txt","r")
@@ -58,36 +59,29 @@ def analyse(totalTime):
 	incorrect = -1
 	
 	#Here leastRange is used to avoid out of bounds error
-	leastRange = min(len(enteredList),len(correctList))
-	
-	printingList = userInput.read().split(" ")
-	
+	leastRange = min(len(enteredList),len(correctList)) 
+
 	for i in range(leastRange):
 		if(correctList[i] == enteredList[i]):
 			print( color.OKGREEN + enteredList[i] + color.ENDC,end=" ")
 		else:
 			print( color.FAIL+ enteredList[i] + color.ENDC,end=" ")
 			incorrect += 1
-		if(i%10 == 0):
+		if(i%10 == 0 & i != 0):
 			print()
 
 	# now the remaining part of text will be checked
 	# any extra text or less is considerd to be an incorrect entry
-
-	difference = abs(len(enteredList)-len(correctList))
+	difference = abs( len(enteredList) - len(correctList) +  1)
 	incorrect += difference
 	
-	if(leastRange == len(correctList)):
-		for i in range(difference+1,len(correctList)):
+
+	if(len(enteredList) < len(correctList) - 1):
+		for i in range(difference,len(correctList)):
 			print(color.FAIL + correctList[i] + color.ENDC ,end=" ")
-			if(i%10 == 0):
+			if(i%10 == 0 & i != 0):
 				print()			
-	else:
-		for i in range(difference+1,len(enteredList)):
-			print(color.FAIL + enteredList[i] + color.ENDC,end=" ")
-			if(i%10 == 0):
-				print()
-	
+
 	print(color.BOLD+"\nShowing Stats in 5 Seconds"+color.ENDC)
 	time.sleep(5)
 	os.system("clear")
@@ -113,7 +107,6 @@ takeInput()
 finalTime = time.time()
 totalTime = finalTime - startingTime
 analyse(totalTime)
-
 
 	
 

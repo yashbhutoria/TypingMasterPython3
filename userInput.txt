@@ -1,4 +1,1 @@
-This is a testing paragraph given to the iser for typing in
-this is the second line of the test file
-this is third line of typing master
-this is the last and fourth line of typing master test file
+The quick brown fox jumps over a lazy dog
