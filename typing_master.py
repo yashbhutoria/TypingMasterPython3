@@ -2,7 +2,7 @@
 import time
 import os
 
-
+#--
 """
 to provide a flash screen in the begining and
 to display input file and give prompt for typing in
